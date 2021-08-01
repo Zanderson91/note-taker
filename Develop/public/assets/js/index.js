@@ -12,6 +12,19 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+//initiate first call to use the app. Links to public folder.
+app.use(express.static('public'));
+//initiates second call to use data in JSON format
+app.use(express.json());
+
+
+
+
+
+
+
+
+
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
