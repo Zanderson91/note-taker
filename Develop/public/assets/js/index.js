@@ -18,8 +18,15 @@ app.use(express.static('public'));
 app.use(express.json());
 
 
+//establish beginning html file (index.html)
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
-
+//establish notes html file and where it's hosted (notes.html)
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "/public/notes.html"));
+});
 
 
 
