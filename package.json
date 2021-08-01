@@ -3,6 +3,7 @@
     "express": "^4.17.1",
     "gitignore": "^0.7.0",
     "js": "^0.1.0",
+    "nodemon": "^2.0.12",
     "path": "^0.12.7"
   },
   "name": "note-taker",
@@ -11,7 +12,8 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",

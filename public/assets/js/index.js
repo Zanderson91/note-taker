@@ -1,35 +1,8 @@
-const express = require('express');
-const fs = require ('fs');
-const path = require('path');
-const database = require('./db/db.json');
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
-
-//initiate first call to use the app. Links to public folder.
-app.use(express.static('public'));
-//initiates second call to use data in JSON format
-app.use(express.json());
-
-
-//establish beginning html file (index.html)
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
-});
-
-//establish notes html file and where it's hosted (notes.html)
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
-});
-
-
-
 
 
 if (window.location.pathname === '/notes') {
