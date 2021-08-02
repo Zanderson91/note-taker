@@ -20,17 +20,26 @@ router.post("/api/notes", (req, res) => {
     const newNote = req.body
     newNote.id = uuid
     notes.push(newNote)
-    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notes), function(err) {
+    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notes), function (err) {
         if (err) throw err
     })
     res.end();
-        console.log("Saved!")
-    });
+    console.log("Saved!")
+});
 
+//API delete call to remove saved JSON
+router.delete("/api/notes/:id", (req, res) => {
+    const id = req.params.id;
+    let deleteNotes = notes.filter(note => note.id != id)
+    notes = deleteNotes
 
+    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notes), function (err) {
+        if (err) throw err
+    })
+    res.end();
+})
 
 
 
 
 module.exports = router;
-
