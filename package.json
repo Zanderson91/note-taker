@@ -4,7 +4,10 @@
     "gitignore": "^0.7.0",
     "js": "^0.1.0",
     "nodemon": "^2.0.12",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.11",
+    "v1": "^1.0.0"
   },
   "name": "note-taker",
   "description": "Your assignment is to modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.",
