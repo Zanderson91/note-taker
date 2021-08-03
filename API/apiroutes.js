@@ -1,11 +1,10 @@
 const router = require('express').Router();
 let notes = require('../db/db.json')
 const fs = require('fs');
-let uuid = require('uuid');
-let {
+const {
     v4: uuidv4
 } = require('uuid');
-uuidv4();
+
 
 
 
@@ -19,7 +18,8 @@ router.get("/api/notes", (req, res) => {
 //UUID created for each new post and allows for better sorting
 router.post("/api/notes", (req, res) => {
     const newNote = req.body
-    newNote.id = uuid
+    //function to use uuidv4
+    newNote.id = uuidv4();
     notes.push(newNote)
     fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notes), function (err) {
         if (err) throw err
