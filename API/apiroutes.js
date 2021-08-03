@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const notes = require('../db/db.json')
+let notes = require('../db/db.json')
 const fs = require('fs');
-const uuid = require('uuid');
-const {
+let uuid = require('uuid');
+let {
     v4: uuidv4
 } = require('uuid');
 uuidv4();
@@ -30,10 +30,9 @@ router.post("/api/notes", (req, res) => {
 //API delete call to remove saved JSON
 router.delete("/api/notes/:id", (req, res) => {
     const id = req.params.id;
-    let deleteNotes = notes.filter(note => note.id != id)
-    notes = deleteNotes
-
-    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notes), function (err) {
+    let filterNotes = notes.filter(note => note.id != id)
+    deleteNotes = filterNotes
+    fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(filterNotes), function (err) {
         if (err) throw err
     })
     res.end();
@@ -41,5 +40,4 @@ router.delete("/api/notes/:id", (req, res) => {
 
 
 
-
-module.exports = router;
+module.exports = router
