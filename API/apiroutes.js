@@ -16,6 +16,7 @@ router.get("/api/notes", (req, res) => {
 });
 
 // Pushing data to array
+//UUID created for each new post and allows for better sorting
 router.post("/api/notes", (req, res) => {
     const newNote = req.body
     newNote.id = uuid
@@ -28,6 +29,7 @@ router.post("/api/notes", (req, res) => {
 });
 
 //API delete call to remove saved JSON
+//After UUID is created the delete call filters results by note id and deletes the corresponding file.
 router.delete("/api/notes/:id", (req, res) => {
             const id = req.params.id;
             let filterNotes = notes.filter(note => note.id != id)
